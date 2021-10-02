@@ -13,15 +13,20 @@ export const GlobalStyle = createGlobalStyle`
 
         --shape: #ffffff;
     } */
-*{
-    margin: 0;
-    padding: 0;     
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
+    :root{
+        --azul-escuro: #449dd1;
+        --azul-claro: #78c0e0;
 
-
+        --verde: #2ab523;
+    }
+    
+    *{
+        margin: 0;
+        padding: 0;     
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
 `
 
