@@ -3,9 +3,13 @@ import { darken, transparentize } from 'polished'
 
 export const Container = styled.div`
     padding: 0.5rem;
-    //background-color: #f2e30c;
+    border: 1px solid black;
+    h2{
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
     img{
-        background-color: rebeccapurple;
+        
         width: 100%;
         height: 300px;
     }

@@ -1,13 +1,25 @@
 import { Container } from "./style";
-import fifa from '../../assets/fifa-18.png'
+import img from '../../assets/fifa-18.png'
 
+interface ProductProps {
+    props: {
+        id: number,
+        name: string,
+        price: number,
+        score: number,
+        image: string
+    }
+}
 
-export function Product() {
+export function Product({ props }: ProductProps) {
+
+    ////const images = require(`../../assets/${props.image}`);
+
     return (
-        <Container>
-            <img src="../../assets/fifa-18.png" alt="" />
-            <h2>Nome Do Jogo</h2>
-            <label className="Price">R$ 200.00</label>
+        <Container key={props.id}>
+            <img src={require(`../../assets/${props.image}`).default} alt="" />
+            <h2>{props.name}</h2>
+            <label className="Price">R$ {props.price}</label>
             <button type="button">Adicionar ao carrinho</button>
         </Container>
     );

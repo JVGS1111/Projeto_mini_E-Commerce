@@ -9,7 +9,7 @@ export function Home() {
                 <h2>Destaques</h2>
             </div>
 
-            <ProductList />
+            <ProductList url={"/products"} />
         </Container>
     );
 }
