@@ -1,4 +1,4 @@
-import { ProductList } from '../components/productList/ProductList';
+import { ProductList } from '../../components/productList';
 import { Container } from './style'
 
 export function Home() {

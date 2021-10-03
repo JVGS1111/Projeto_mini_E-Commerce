@@ -1,6 +1,6 @@
 import { Container } from "./style";
-import img from '../../assets/fifa-18.png'
-
+import { Link } from 'react-router-dom';
+import { useEffect } from "react";
 interface ProductProps {
     props: {
         id: number,
@@ -13,12 +13,17 @@ interface ProductProps {
 
 export function Product({ props }: ProductProps) {
 
-    ////const images = require(`../../assets/${props.image}`);
+    // useEffect(() => {
+    //     const img = require(`../../assets/${props.image}`).default
+    //     console.log(img);
 
+    // })
     return (
         <Container key={props.id}>
-            <img src={require(`../../assets/${props.image}`).default} alt="" />
-            <h2>{props.name}</h2>
+            <Link className="react-router-Link" to={`/product/${props.id}`}>
+                <img src={require(`../../assets/${props.image}`).default} alt="" />
+                <h2>{props.name}</h2>
+            </Link>
             <label className="Price">R$ {props.price}</label>
             <button type="button">Adicionar ao carrinho</button>
         </Container>

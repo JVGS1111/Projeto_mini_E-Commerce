@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken, transparentize } from 'polished'
+import { darken } from 'polished'
 
 export const Container = styled.div`
     padding: 0.5rem;

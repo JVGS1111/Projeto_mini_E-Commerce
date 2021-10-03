@@ -28,6 +28,13 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
+    .react-router-Link{
+        list-style: none;
+        text-decoration: none;
+        color: black;
+        font-size: 1rem;
+    }
+
 `
 
 
