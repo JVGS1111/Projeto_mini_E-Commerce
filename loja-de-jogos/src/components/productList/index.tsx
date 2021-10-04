@@ -13,7 +13,7 @@ export function ProductList({ url }: ProductListProps) {
 
     useEffect(() => {
         getDados(url, setProduct)
-    }, product)
+    }, [url])
 
     return (
         <Container>

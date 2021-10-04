@@ -8,9 +8,9 @@ export function SideBar() {
     return (
         <Container>
             <Content>
-                <SideBarRouterItem imgLink={playStation} description="PlayStation" />
-                <SideBarRouterItem imgLink={nintendo} description="Nintendo" />
-                <SideBarRouterItem imgLink={xbox} description="Xbox" />
+                <SideBarRouterItem imgLink={playStation} description="PlayStation" url="playstation" />
+                <SideBarRouterItem imgLink={nintendo} description="Nintendo" url="nintendo" />
+                <SideBarRouterItem imgLink={xbox} description="Xbox" url="xbox" />
             </Content>
         </Container>
     );
