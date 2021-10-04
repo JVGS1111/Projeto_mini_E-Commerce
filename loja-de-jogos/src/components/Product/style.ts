@@ -18,23 +18,5 @@ export const Container = styled.div`
         font-size: 1.5rem;
         color: var(--verde);
     }
-    button{
-        display: flex;
-        height: 3rem;
-        padding: 2%;
-        font-size: 1rem;
-        align-items: center;
-        margin: 20px 0;
-        
-        font-weight: 400;
-        background-color: #2ab523;
-        border:none;
-        cursor: pointer;
-
-        transition: background-color 0.2s;
-        
-        &:hover{
-            background-color:${darken(0.1, '#2ab523')} 
-        }
-    }
+    
 `

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { getDados } from "../../services/api/api";
 import { Container } from "./style";
 
@@ -17,9 +17,13 @@ interface idParamsProps {
 export function ProductPage() {
     const { id } = useParams<idParamsProps>();
     const [product, setProduct] = useState<ProductProps>();
+    let history = useHistory();
 
     useEffect(() => {
         getDados(`/products/${id}`, setProduct)
+            .catch(() => {
+                history.push('/404');
+            })
 
     }, [])
 
@@ -35,9 +39,9 @@ export function ProductPage() {
         <Container>
             <img src={image} alt="" />
             <div>
-                <h2>{product?.image}</h2>
+                <h2>{product?.name}</h2>
                 <h3>R$ {product?.price}</h3>
-                <button type="button">Adicionar ao carrinhho</button>
+                <button className="global-button" type="button">Adicionar ao carrinhho</button>
             </div>
         </Container>
     );

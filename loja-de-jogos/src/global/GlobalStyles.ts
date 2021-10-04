@@ -1,3 +1,4 @@
+import { darken } from "polished";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -33,6 +34,30 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: black;
         font-size: 1rem;
+    }
+
+    .global-button{
+        display: flex;
+        height: 3rem;
+        padding: 2%;
+        font-size: 1rem;
+        align-items: center;
+        margin: 20px 0;
+        
+        font-weight: 400;
+        background-color: #2ab523;
+        border:none;
+        cursor: pointer;
+
+        transition: background-color 0.2s;
+        
+        &:hover{
+            background-color:${darken(0.1, '#2ab523')} 
+        }
+
+        &:active{
+            background-color:${darken(0.3, '#2ab523')} 
+        }
     }
 
 `
