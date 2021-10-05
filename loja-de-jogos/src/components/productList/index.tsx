@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { getDados } from "../../services/api/api";
+import { useProduct } from "../../hook/ProductContext";
+import { api } from "../../services/api/api";
+import { FilterProducts } from "../FilterProducts";
 import { Product } from "../Product";
 import { Container } from "./style";
 
@@ -7,19 +9,62 @@ interface ProductListProps {
     url: string
 }
 
-export function ProductList({ url }: ProductListProps) {
+interface ProductState {
+    id: number,
+    name: string,
+    price: number,
+    score: number,
+    image: string
+}
 
-    const [product, setProduct] = useState([]);
+
+export function ProductList({ url }: ProductListProps) {
+    //const { SetUrl, product } = useProduct();
+
+    const [product, setProduct] = useState<ProductState[]>([]);
+    const [GetIsComplete, setGetIsComplete] = useState(false)
+    const [IsFilteredByScore, setIsFilteredByScore] = useState(false);
 
     useEffect(() => {
-        getDados(url, setProduct)
-    }, [url])
+        if (GetIsComplete == false) {
+            api.get(url)
+                .then(res => setProduct(res.data))
+            setGetIsComplete(true)
+        }
+
+    }, [])
+
+    function SortPerName() {
+        let list = product;
+        if (IsFilteredByScore) {
+            list.reverse();
+
+            setProduct(list);
+            setIsFilteredByScore(!IsFilteredByScore)
+
+
+        } else {
+            list.sort((a, b) => {
+                return a.score - b.score
+            })
+            setProduct(list);
+            setIsFilteredByScore(!IsFilteredByScore)
+        }
+
+
+
+    }
 
     return (
-        <Container>
-            {product.map(prod => {
-                return <Product props={prod} />
-            })}
-        </Container>
+        <>
+            <FilterProducts SortPerName={SortPerName} />
+            <Container>
+
+                {product.map(prod => {
+                    return <Product props={prod} />
+                })}
+            </Container>
+
+        </>
     );
 }

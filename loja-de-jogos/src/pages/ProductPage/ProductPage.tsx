@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { getDados } from "../../services/api/api";
+import { api, } from "../../services/api/api";
 import { Container } from "./style";
 
 interface ProductProps {
@@ -20,18 +20,18 @@ export function ProductPage() {
     let history = useHistory();
 
     useEffect(() => {
-        getDados(`/products/${id}`, setProduct)
+        api.get(`/products/${id}`)
+            .then(res => setProduct(res.data))
             .catch(() => {
                 history.push('/404');
             })
 
-    }, [])
+    }, []);
 
     let image = '';
 
     if (product) {
         image = require(`../../assets/${product?.image}`).default;
-        console.log(image);
 
     }
 
