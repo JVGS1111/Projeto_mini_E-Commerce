@@ -15,15 +15,16 @@ export function Marca() {
     useEffect(() => {
         titleName()
     }, [id])
+
     function titleName() {
 
-        if (id === 'playstation') {
+        if (id == 'playstation') {
             setTitle('PlayStation')
         }
-        if (id === 'xbox') {
+        if (id == 'xbox') {
             setTitle('Xbox')
         }
-        if (id === 'nintendo') {
+        if (id == 'nintendo') {
             setTitle('Nintendo')
         }
     }

@@ -20,18 +20,13 @@ interface ProductState {
 export function ProductList({ url }: ProductListProps) {
 
     const [product, setProduct] = useState<ProductState[]>([]);
-    const [GetIsComplete, setGetIsComplete] = useState(false)
     const [IsFilteredByScore, setIsFilteredByScore] = useState(false);
     const [isFilteredByName, setIsFilteredByName] = useState(false)
 
     useEffect(() => {
-        if (GetIsComplete === false) {
-            api.get(url)
-                .then(res => setProduct(res.data))
-            setGetIsComplete(true)
-        }
-
-    }, [])
+        api.get(url)
+            .then(res => setProduct(res.data))
+    }, [url])
 
     function SortScore() {
         //funcao que filtra por score/popularidade
