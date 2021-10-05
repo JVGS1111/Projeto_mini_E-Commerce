@@ -7,6 +7,7 @@ export const Container = styled.main`
     width: 100%;
     padding: 1rem 0rem;
 
+    
     .title-container{
         display: flex;
         width: 100%;
