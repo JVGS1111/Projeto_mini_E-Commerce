@@ -3,14 +3,15 @@ import ScoreFilter from '../../assets/filterIcons/score-filter-black.png';
 import AbcFilter from '../../assets/filterIcons/abc-filter-black.png';
 
 interface FilterProducts {
-    SortPerName: () => void
+    SortScore: () => void
+    SortName: () => void
 }
 
-export function FilterProducts({ SortPerName }: FilterProducts) {
+export function FilterProducts({ SortScore, SortName }: FilterProducts) {
     return (
         <Container>
-            <img src={ScoreFilter} alt="mais populares" />
-            <img src={AbcFilter} onClick={SortPerName} alt="filtrar por ordem alfabetica" />
+            <img src={ScoreFilter} onClick={SortName} alt="mais populares" />
+            <img src={AbcFilter} onClick={SortScore} alt="filtrar por ordem alfabetica" />
         </Container>
     );
 }

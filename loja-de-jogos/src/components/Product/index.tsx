@@ -1,6 +1,5 @@
 import { Container } from "./style";
 import { Link } from 'react-router-dom';
-import { useEffect } from "react";
 
 interface ProductProps {
     props: {
