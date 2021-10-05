@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { useCart } from "../../hook/CartContext";
 import { api, } from "../../services/api/api";
 import { Container } from "./style";
 
@@ -18,7 +19,8 @@ export function ProductPage() {
     const { id } = useParams<idParamsProps>();
     const [product, setProduct] = useState<ProductProps>();
     let history = useHistory();
-
+    const { addProduct } = useCart()
+    let image = '';
     useEffect(() => {
         api.get(`/products/${id}`)
             .then(res => setProduct(res.data))
@@ -28,7 +30,12 @@ export function ProductPage() {
 
     }, []);
 
-    let image = '';
+
+
+
+    function handleaddProduct() {
+        addProduct(product!)
+    }
 
     if (product) {
         image = require(`../../assets/${product?.image}`).default;
@@ -41,7 +48,7 @@ export function ProductPage() {
             <div>
                 <h2>{product?.name}</h2>
                 <h3>R$ {product?.price}</h3>
-                <button className="global-button" type="button">Adicionar ao carrinhho</button>
+                <button className="global-button" type="button" onClick={handleaddProduct}>Adicionar ao carrinhho</button>
             </div>
         </Container>
     );

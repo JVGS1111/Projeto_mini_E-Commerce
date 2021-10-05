@@ -1,5 +1,6 @@
 import { Container } from "./style";
 import { Link } from 'react-router-dom';
+import { useCart } from "../../hook/CartContext";
 
 interface ProductProps {
     props: {
@@ -12,10 +13,10 @@ interface ProductProps {
 }
 
 export function Product({ props }: ProductProps) {
+    const { addProduct } = useCart()
 
-
-    function exibirObj() {
-        console.log(props)
+    function handleaddProduct() {
+        addProduct(props)
     }
     return (
         <Container key={props.id}>
@@ -24,7 +25,7 @@ export function Product({ props }: ProductProps) {
                 <h2>{props.name}</h2>
             </Link>
             <label className="Price">R$ {props.price}</label>
-            <button className="global-button" type="button" onClick={exibirObj
+            <button className="global-button" type="button" onClick={handleaddProduct
             }>Adicionar ao carrinho</button>
         </Container>
     );

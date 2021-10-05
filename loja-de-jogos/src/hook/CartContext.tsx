@@ -9,7 +9,7 @@ interface CartContextDataProps {
 }
 
 interface CartContextData {
-
+    addProduct: (product: Product) => void
 }
 
 interface Product {
@@ -26,21 +26,27 @@ export const CartContext = createContext<CartContextData>({} as CartContextData)
 export function CartContextData({ children }: CartContextDataProps) {
 
     const [cart, setCart] = useState<Product[]>([]);
-    let cartArray: Product[] = []
+    let cartArray: Product
+
+    useEffect(() => {
+        console.log(cart);
+
+    })
 
     function addProduct(product: Product) {
-        cartArray.push(product)
-        setCart(cartArray)
+        //cartArray = product;
+        setCart([...cart, product])
+
     }
 
 
-    return <CartContext.Provider value={{}}>
+    return <CartContext.Provider value={{ addProduct }}>
         {children}
     </CartContext.Provider>
 }
 
 
-export function useProduct() {
+export function useCart() {
     const context = useContext(CartContext);
 
     return context;
