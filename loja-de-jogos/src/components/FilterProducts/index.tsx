@@ -2,12 +2,12 @@ import { Container } from "./styled";
 import ScoreFilter from '../../assets/filterIcons/score-filter-black.png';
 import AbcFilter from '../../assets/filterIcons/abc-filter-black.png';
 
-interface FilterProducts {
+interface FilterProductsPros {
     SortScore: () => void
     SortName: () => void
 }
 
-export function FilterProducts({ SortScore, SortName }: FilterProducts) {
+export function FilterProducts({ SortScore, SortName }: FilterProductsPros) {
     return (
         <Container>
             <img src={ScoreFilter} onClick={SortName} alt="mais populares" />

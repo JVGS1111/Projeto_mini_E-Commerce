@@ -1,18 +1,4 @@
 {
-  "marca": [
-    {
-      "id": "nintendo",
-      "nome": "nintendo"
-    },
-    {
-      "id": "playstation",
-      "nome": "playstation"
-    },
-    {
-      "id": "xbox",
-      "nome": "xbox"
-    }
-  ],
   "products": [
     {
       "id": 312,

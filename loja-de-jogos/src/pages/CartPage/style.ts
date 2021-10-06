@@ -5,7 +5,7 @@ export const Container = styled.main`
     margin: 0 auto;
     padding: 2rem 1rem;
     max-width: 1140px;
-    
+    width: 100%;
     th{
         padding-bottom: 1rem;
         font-weight: 500;

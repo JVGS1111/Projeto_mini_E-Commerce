@@ -13,7 +13,8 @@ interface ProductState {
     name: string,
     price: number,
     score: number,
-    image: string
+    image: string,
+    marca: string
 }
 
 

@@ -1,7 +1,5 @@
-import { Children, createContext, ReactNode, useContext } from "react";
-import { useEffect, useState } from "react";
-import { api } from "../services/api/api";
-//import { getDados } from "../services/api/api";
+import { createContext, ReactNode, useContext, useEffect } from "react";
+import { useState } from "react";
 
 
 interface CartContextDataProps {
@@ -10,6 +8,12 @@ interface CartContextDataProps {
 
 interface CartContextData {
     addProduct: (product: Product) => void
+    removeProduct: (index: number) => void
+    cart: Product[]
+    prodCount: number;
+    total: number;
+    frete: number;
+    subtotal: number
 }
 
 interface Product {
@@ -18,6 +22,7 @@ interface Product {
     price: number,
     score: number,
     image: string
+    marca: string
 }
 
 
@@ -25,22 +30,55 @@ export const CartContext = createContext<CartContextData>({} as CartContextData)
 
 export function CartContextData({ children }: CartContextDataProps) {
 
-    const [cart, setCart] = useState<Product[]>([]);
-    let cartArray: Product
+    const [cart, setCart] = useState<Product[]>([]);//estado que armazena todos os produtos
+    const [prodCount, SetProdCount] = useState(0);//contador de produtos
+    const [total, setTotal] = useState(0);
+    const [frete, setFrete] = useState(0);
+    const [subtotal, setSubtotal] = useState(0);
 
     useEffect(() => {
-        console.log(cart);
+        calcAmount();
+    }, [cart])
 
-    })
+    function calcAmount() {
+        let newCart = cart;
+        let subtotal = 0;
+        let frete = prodCount * 10;
+        newCart.forEach((item) => {
+            subtotal += item.price
+            if (subtotal > 250) {
+                frete = 0;
+            }
+        })
+        const total = subtotal + frete;
 
-    function addProduct(product: Product) {
-        //cartArray = product;
-        setCart([...cart, product])
-
+        setFrete(frete);
+        setSubtotal(subtotal);
+        setTotal(total);
     }
 
+    function addProduct(product: Product) {
+        setCart([...cart, product]);
+        SetProdCount(prodCount + 1);//adiciona 1 ao indicador de produtos no header
+        alert('Produto adicionado ao carrinho!');
+    }
 
-    return <CartContext.Provider value={{ addProduct }}>
+    function removeProduct(indexProp: number) {
+        let newCart = cart;
+        let newAmount: Product[] = [];
+
+        newCart.map((item, index) => {
+            if (index != indexProp) {
+
+                newAmount.push(item);
+            }
+        })
+
+        SetProdCount(prodCount - 1); //remove 1 ao indicador de produtos no header
+        setCart([...newAmount]);
+    }
+
+    return <CartContext.Provider value={{ addProduct, cart, removeProduct, prodCount, total, frete, subtotal }}>
         {children}
     </CartContext.Provider>
 }

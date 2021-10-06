@@ -9,7 +9,8 @@ interface ProductProps {
     name: string,
     price: number,
     score: number,
-    image: string
+    image: string,
+    marca: string
 }
 interface idParamsProps {
     id: string
@@ -21,6 +22,7 @@ export function ProductPage() {
     let history = useHistory();
     const { addProduct } = useCart()
     let image = '';
+
     useEffect(() => {
         api.get(`/products/${id}`)
             .then(res => setProduct(res.data))
@@ -30,16 +32,13 @@ export function ProductPage() {
 
     }, []);
 
-
-
-
     function handleaddProduct() {
         addProduct(product!)
     }
 
     if (product) {
         image = require(`../../assets/${product?.image}`).default;
-
+        //verificação se 'product' é nulo, se for haverá um erro; 
     }
 
     return (

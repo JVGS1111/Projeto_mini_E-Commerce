@@ -18,4 +18,10 @@ export const Item = styled.div`
             color: white;
         }
     }
+
+    @media (max-width: 600px){
+        .description{
+            display: none;
+        }
+    }
 `

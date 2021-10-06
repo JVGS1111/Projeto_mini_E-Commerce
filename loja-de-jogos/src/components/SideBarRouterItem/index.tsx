@@ -12,7 +12,7 @@ export function SideBarRouterItem({ imgLink, description, url }: SideBarRouterIt
         <Link className="react-router-Link" to={`/marca/${url}`}>
             <Item>
                 <img src={imgLink} />
-                <span>{description}</span>
+                <span className="description">{description}</span>
             </Item>
         </Link>
 

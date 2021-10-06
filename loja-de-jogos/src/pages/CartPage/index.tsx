@@ -1,10 +1,15 @@
 import { CartItem } from "../../components/CartItem";
 import { CartTotal } from "../../components/CartTotal";
+import { useCart } from "../../hook/CartContext";
 import { Container } from "./style";
+
 
 export function CartPage() {
 
+    const { cart } = useCart();
+
     return (
+
         <Container>
             <div className="title-container">
                 <h2>Carrinho</h2>
@@ -19,9 +24,11 @@ export function CartPage() {
                         <th> </th>
                     </tr>
                 </thead>
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {
+                    cart.map((prod, index) => {
+                        return <CartItem key={index} index={index} {...prod} />
+                    })
+                }
 
             </table>
             <CartTotal />

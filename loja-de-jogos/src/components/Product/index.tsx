@@ -8,14 +8,15 @@ interface ProductProps {
         name: string,
         price: number,
         score: number,
-        image: string
+        image: string,
+        marca: string,
     }
 }
 
 export function Product({ props }: ProductProps) {
     const { addProduct } = useCart()
 
-    function handleaddProduct() {
+    function handleAddProduct() {
         addProduct(props)
     }
     return (
@@ -25,7 +26,7 @@ export function Product({ props }: ProductProps) {
                 <h2>{props.name}</h2>
             </Link>
             <label className="Price">R$ {props.price}</label>
-            <button className="global-button" type="button" onClick={handleaddProduct
+            <button className="global-button" type="button" onClick={handleAddProduct
             }>Adicionar ao carrinho</button>
         </Container>
     );

@@ -12,7 +12,10 @@ export const Conteiner = styled.tbody`
         padding: 1rem;
         font-size: 1rem;
         font-weight: 400;
-
+        .img-produto{
+            width: 80px;
+            height: 100px;
+        }
         .lixeira{
             cursor: pointer;
         }
