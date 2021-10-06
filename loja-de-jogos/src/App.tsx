@@ -14,15 +14,14 @@ export function App() {
     <Router>
       <GlobalStyle />
       <CartContextData>
-
         <Header />
-
 
         <Switch>
           <Route exact path='/'>
             <SideBar />
             <Home />
           </Route>
+
 
           <Route exact path='/product/:id'>
             <SideBar />

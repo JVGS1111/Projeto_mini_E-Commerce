@@ -28,4 +28,9 @@ export const Container = styled.main`
         text-align: center;
         border-spacing: 0 0.5rem;
     }
+    @media (max-width: 500px){
+        th{
+            font-size: 0.8rem;
+        }
+    }
 `

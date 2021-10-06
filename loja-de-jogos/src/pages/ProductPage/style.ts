@@ -9,7 +9,7 @@ export const Container = styled.main`
 
     img{
         width: 50%;
-        height: 500px;
+        height: 450px;
     }
     h2{
         font-weight: 600;
@@ -19,5 +19,16 @@ export const Container = styled.main`
         font-size: 1.5rem;
         font-weight: 500;
         color: var(--verde);
+    }
+
+    @media (max-width: 700px){
+        h2{
+        
+        font-size: 1.5rem;
+    }
+        img{
+            width: 50%;
+            height: 200px;
+        }
     }
 `

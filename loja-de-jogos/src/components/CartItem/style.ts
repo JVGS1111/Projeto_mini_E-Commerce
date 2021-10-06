@@ -19,5 +19,24 @@ export const Conteiner = styled.tbody`
         .lixeira{
             cursor: pointer;
         }
-    }
+        @media (max-width: 500px){
+            padding: 5px;
+            font-size: 0.7rem;
+ 
+            .img-produto{
+            width: 30px;
+            height: 40px;
+            }   
+            .lixeira{
+                width: 20px;
+                height: 20px;
+            }
+            
+        }
+        
+    } 
+        
+
+      
+    
 `

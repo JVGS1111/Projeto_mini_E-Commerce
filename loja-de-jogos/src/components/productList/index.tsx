@@ -25,6 +25,7 @@ export function ProductList({ url }: ProductListProps) {
     const [isFilteredByName, setIsFilteredByName] = useState(false)
 
     useEffect(() => {
+
         api.get(url)
             .then(res => setProduct(res.data))
     }, [url])
@@ -72,7 +73,7 @@ export function ProductList({ url }: ProductListProps) {
     return (
         <>
             <FilterProducts SortScore={SortScore} SortName={SortName} />
-            <Container>
+            <Container data-testid="productList">
 
                 {product.map(prod => {
                     return <Product key={prod.id} props={prod} />

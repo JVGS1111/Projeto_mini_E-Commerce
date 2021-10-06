@@ -20,13 +20,13 @@ export function Product({ props }: ProductProps) {
         addProduct(props)
     }
     return (
-        <Container key={props.id}>
+        <Container key={props.id} data-testid="product">
             <Link className="react-router-Link" to={`/product/${props.id}`}>
                 <img src={require(`../../assets/${props.image}`).default} alt="" />
                 <h2>{props.name}</h2>
             </Link>
             <label className="Price">R$ {props.price}</label>
-            <button className="global-button" type="button" onClick={handleAddProduct
+            <button className="global-button" data-testid="addAtCart" type="button" onClick={handleAddProduct
             }>Adicionar ao carrinho</button>
         </Container>
     );

@@ -15,7 +15,7 @@ export function Header() {
                 <Link className="react-router-Link" to="/"><img src={Logo} alt="logo" /></Link>
                 <div className="cart-container">
                     <Link className="react-router-Link" to='/carrinho'><img className="cart-icon" src={CartIcon} alt="carrinho" /></Link>
-                    <label>{prodCount}</label>
+                    <label data-testid="prodCount">{prodCount}</label>
                 </div>
             </div>
         </Container>
