@@ -41,6 +41,7 @@ export function CartContextData({ children }: CartContextDataProps) {
     }, [cart])
 
     function calcAmount() {
+        //funcao calcula o total, frete e subtotal
         let newCart = cart;
         let subtotal = 0;
         let frete = prodCount * 10;

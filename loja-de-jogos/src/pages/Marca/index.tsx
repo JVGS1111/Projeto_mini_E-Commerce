@@ -13,7 +13,7 @@ export function Marca() {
     const [title, setTitle] = useState('')
 
     useEffect(() => {
-        titleName()
+        titleName();
     }, [id])
 
     function titleName() {
