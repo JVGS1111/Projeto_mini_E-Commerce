@@ -7,6 +7,7 @@ import { Container } from "./style";
 export function CartPage() {
 
     const { cart } = useCart();
+    console.log(cart);
 
     return (
 
@@ -32,8 +33,6 @@ export function CartPage() {
 
             </table>
             <CartTotal />
-
-
         </Container>
     );
 }

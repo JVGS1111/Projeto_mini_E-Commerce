@@ -28,13 +28,13 @@ export function CartItem({ id, name, price, score, image, index, marca }: Produc
     }
 
     return (
-        <Conteiner>
+        <Conteiner data-testid="produtoListaTeste">
             <tr>
                 <td><img className="img-produto" src={img} alt={name} /></td>
                 <td>{name}</td>
                 <td>{marca}</td>
                 <td>R$ {price}</td>
-                <td><img onClick={handleRemoveProduct} className="lixeira" src={LixeiraImg} alt="excluir" /></td>
+                <td><img data-testid="botaoRemover" onClick={handleRemoveProduct} className="lixeira" src={LixeiraImg} alt="excluir" /></td>
             </tr>
         </Conteiner>
     );

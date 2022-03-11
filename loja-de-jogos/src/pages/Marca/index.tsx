@@ -31,7 +31,7 @@ export function Marca() {
     return (
         <Container>
             <div className="title-container">
-                <h2>{title}</h2>
+                <h2 data-testid="marca-title">{title}</h2>
             </div>
             <Route exact path={`${path}/`}>
                 <ProductList url={`/products?marca=${id}`} />

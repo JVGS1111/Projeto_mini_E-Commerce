@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { useCart } from "../../hook/CartContext";
 import { api, } from "../../services/api/api";
@@ -23,7 +23,7 @@ export function ProductPage() {
     const { addProduct } = useCart()
     let image = '';
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         api.get(`/products/${id}`)
             .then(res => setProduct(res.data))
             .catch(() => {
