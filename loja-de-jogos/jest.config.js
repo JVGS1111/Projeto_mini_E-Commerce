@@ -6,5 +6,13 @@ module.exports = {
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/@testing-library/jest-dom"
     },
-    testEnvironment: 'jsdom'
+    testEnvironment: 'jsdom',
+    collectCoverage: true,
+    collectCoverageFrom: [
+        "src/**/*.tsx",
+        "!src/**/*.spec.tsx"
+    ],
+    coverageReporters: [
+        "lcov"
+    ]
 }
